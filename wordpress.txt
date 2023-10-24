@@ -5691,3 +5691,5 @@
 /wpbackup.sql
 /www.sql
 /zzfaq.sql
+/wp-json/wp/v2/posts
+/wp-json/wp/v2/pages
