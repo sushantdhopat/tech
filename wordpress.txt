@@ -5697,3 +5697,4 @@
 /wp-config.php.dist
 /wp-config.php.inc
 /wp-config.php.html
+/_wpeprivate/config.json
