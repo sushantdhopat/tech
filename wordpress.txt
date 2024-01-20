@@ -5694,3 +5694,4 @@
 /wp-json/wp/v2/posts
 /wp-json/wp/v2/pages
 /wp-config.inc
+/wp-config.php.dist
