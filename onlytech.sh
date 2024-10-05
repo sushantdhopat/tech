@@ -1,49 +1,62 @@
 #!/bin/bash
 #Author=sushantdhopat
-rm -rf ffuftest
-mkdir ffuftest
+rm -rf tech
+mkdir tech
 file=$1
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/apache | tee ffuftest/apache-domains.txt
-cat ffuftest/apache-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/apache.txt
-rm -rf ffuftest/apache-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/apache | tee tech/apache-domains.txt
+cat tech/apache-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/apache.txt
+[ -s apache.txt ] && cat apache.txt || rm apache.txt
+rm -rf tech/apache-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/aem-detect.yaml | tee ffuftest/aem-domains.txt
-cat ffuftest/aem-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/aem.txt
-rm -rf ffuftest/aem-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/aem-detect.yaml | tee tech/aem-domains.txt
+cat tech/aem-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/aem.txt
+[ -s aem.txt ] && cat aem.txt || rm aem.txt
+rm -rf tech/aem-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/oracle | tee ffuftest/oracle-domains.txt
-cat ffuftest/oracle-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/oracle.txt
-rm -rf ffuftest/oracle-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/oracle | tee tech/oracle-domains.txt
+cat tech/oracle-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/oracle.txt
+[ -s oracle.txt ] && cat oracle.txt || rm oracle.txt
+rm -rf tech/oracle-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/microsoft | tee ffuftest/microsoft-domains.txt
-cat ffuftest/microsoft-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/microsoft.txt
-rm -rf ffuftest/microsoft-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/microsoft | tee tech/microsoft-domains.txt
+cat tech/microsoft-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/microsoft.txt
+[ -s microsoft.txt ] && cat microsoft.txt || rm microsoft.txt
+rm -rf tech/microsoft-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/php-detect.yaml | tee ffuftest/php-domains.txt
-cat ffuftest/php-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/php.txt
-rm -rf ffuftest/php-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/php-detect.yaml | tee tech/php-domains.txt
+cat tech/php-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/php.txt
+[ -s php.txt ] && cat php.txt || rm php.txt
+rm -rf tech/php-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/nginx | tee ffuftest/nginx-domains.txt
-cat ffuftest/nginx-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/nginx.txt
-rm -rf ffuftest/nginx-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/nginx | tee tech/nginx-domains.txt
+cat tech/nginx-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/nginx.txt
+[ -s nginx.txt ] && cat nginx.txt || rm nginx.txt
+rm -rf tech/nginx-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/adobe | tee ffuftest/adobe-domains.txt
-cat ffuftest/adobe-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/adobe.txt
-rm -rf ffuftest/adobe-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/adobe | tee tech/adobe-domains.txt
+cat tech/adobe-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/adobe.txt
+[ -s adobe.txt ] && cat adobe.txt || rm adobe.txt
+rm -rf tech/adobe-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/default-fastcgi-page.yaml | tee ffuftest/cgi-domains.txt
-cat ffuftest/cgi-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/cgi.txt
-rm -rf ffuftest/cgi-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/default-fastcgi-page.yaml | tee tech/cgi-domains.txt
+cat tech/cgi-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/cgi.txt
+[ -s cgi.txt ] && cat cgi.txt || rm cgi.txt
+rm -rf tech/cgi-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/jspxcms-detect.yaml | tee ffuftest/jsp-domains.txt
-cat ffuftest/jsp-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/jsp.txt
-rm -rf ffuftest/jsp-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/jspxcms-detect.yaml | tee tech/jsp-domains.txt
+cat tech/jsp-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/jsp.txt
+[ -s jsp.txt ] && cat jsp.txt || rm jsp.txt
+rm -rf tech/jsp-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/kubernetes | tee ffuftest/kubernetes-domains.txt
-cat ffuftest/kubernetes-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/kubernet.txt
-rm -rf ffuftest/kubernetes-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/kubernetes | tee tech/kubernetes-domains.txt
+cat tech/kubernetes-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/kubernet.txt
+[ -s kubernet.txt ] && cat kubernet.txt || rm kubernet.txt
+rm -rf tech/kubernetes-domains.txt
 
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/wordpress-detect.yaml | tee ffuftest/wordpress-domains.txt
-cat ffuftest/wordpress-domains.txt | grep -Eo 'https?://[^[:space:]]+' | tee ffuftest/wordpress.txt
-rm -rf ffuftest/wordpress-domains.txt
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/wordpress-detect.yaml | tee tech/wordpress-domains.txt
+cat tech/wordpress-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/wordpress.txt
+[ -s wordpress.txt ] && cat wordpress.txt || rm wordpress.txt
+rm -rf tech/wordpress-domains.txt
+
+cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/tech-detect.yaml | tee tech/wepptech.txt
