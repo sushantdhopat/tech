@@ -58,5 +58,3 @@ cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technol
 cat tech/wordpress-domains.txt | grep -Eo 'https?://[^/[:space:]]+\.[a-zA-Z]+' | tee tech/wordpress.txt
 [ -s wordpress.txt ] && cat wordpress.txt || rm wordpress.txt
 rm -rf tech/wordpress-domains.txt
-
-cat $file | nuclei -t /Users/sushantdhopat/desktop/nuclei-templates/http/technologies/tech-detect.yaml | tee tech/wepptech.txt
